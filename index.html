@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - AI/ML Developer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Additional styles for the hero image integration */
+        .hero-visual {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+        }
+        
+        .profile-image-container {
+            position: relative;
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 4px solid transparent;
+            background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+            padding: 4px;
+            animation: profileFloat 6s ease-in-out infinite;
+        }
+        
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+        
+        .profile-image:hover {
+            transform: scale(1.05);
+        }
+        
+        @keyframes profileFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .floating-elements {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+        
+        .floating-card {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            animation: float 4s ease-in-out infinite;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .floating-card:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .floating-card:nth-child(2) {
+            top: 30%;
+            right: 15%;
+            animation-delay: 1s;
+        }
+        
+        .floating-card:nth-child(3) {
+            bottom: 30%;
+            left: 5%;
+            animation-delay: 2s;
+        }
+        
+        .floating-card:nth-child(4) {
+            bottom: 20%;
+            right: 10%;
+            animation-delay: 3s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-5px) rotate(1deg); }
+            50% { transform: translateY(-10px) rotate(0deg); }
+            75% { transform: translateY(-5px) rotate(-1deg); }
+        }
+        
+        .floating-card i {
+            font-size: 18px;
+            color: #667eea;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .profile-image-container {
+                width: 220px;
+                height: 220px;
+            }
+            
+            .floating-card {
+                padding: 8px 12px;
+                font-size: 12px;
+            }
+            
+            .floating-card i {
+                font-size: 16px;
+            }
+        }
+    </style>
+    <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll('.toggle-text').forEach(toggle => {
+      toggle.addEventListener('click', () => {
+        const moreText = toggle.previousElementSibling;
+        moreText.style.display = moreText.style.display === 'inline' ? 'none' : 'inline';
+        toggle.textContent = toggle.textContent === 'View More' ? 'View Less' : 'View More';
+      });
+    });
+  });
+</script>
+
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">Portfolio</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#certifications" class="nav-link">Certifications</a></li>
+                <li><a href="#resume" class="nav-link">Resume</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="theme-toggle">
+                <i class="fas fa-moon theme-icon"></i>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+<section id="home" class="hero">
+  <div class="hero-container">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 class="hero-title">
+          <span class="wave">👋</span>
+          Hi, I'm <span class="gradient-text">Mr P.v.Dinesh</span>
+        </h1>
+        <p class="hero-subtitle">AI/Data Enthusiast</p>
+        <p class="hero-description">
+          I'm a driven AI/data enthusiast, obsessed with solving real-world problems. I've got deep knowledge in AI/ML, Python, SQL, PowerBI, and Java, plus basic HTML, CSS, and JS. I've tackled some really interesting projects: finding missing people, identifying infected honeybees (super helpful for beekeepers!), and even a personalized sports chatbot that gives detailed explanations, workouts, and diet plans. I even published a paper in <b>IEEE</b> I'm a supportive team player, a detail-oriented, collaborative team lead, and I just love getting things done.
+        </p>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary">View My Work</a>
+          <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="profile-image-container">
+          <img src="3.jpg" alt="Your Name - AI/ML Developer" class="profile-image" />
+        </div>
+
+        <div class="floating-elements">
+          <div class="floating-card">
+            <i class="fas fa-brain"></i>
+            <span>AI/ML</span>
+          </div>
+          <div class="floating-card">
+            <i class="fas fa-chart-line"></i>
+            <span>Data Science</span>
+          </div>
+          <div class="floating-card">
+            <i class="fas fa-code"></i>
+            <span>Python</span>
+          </div>
+          <div class="floating-card">
+            <i class="fas fa-robot"></i>
+            <span>Data Analyst</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCROLL INDICATOR -->
+    <div class="scroll-indicator">
+      <div class="scroll-mouse">
+        <div class="scroll-wheel"></div>
+      </div>
+      <span>Scroll Down</span>
+    </div>
+  </div>
+</section>
+
+<!-- Scroll Spacer (optional if you want visible space) -->
+<div style="height: 60px;"></div>
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>AI Chatbot for personalised sports assistent</h3>
+                        <p>An intelligent chatbot for every sport that can create workout and diet plans based on your data and the specific requirements of the sport.</p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>streamlit</span>
+                            <span>Groq Api</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/dinesh31-bit/AI-SPORTS-CHATBOT/tree/main" class="project-link"><i class="fab fa-github"></i> Code</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>House Price Prediction Using linear regression</h3>
+                        <p>Created a supervised model called Linear Regression to predict house prices based on the area occupied by the house.</p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>Scikit-learn</span>
+                            <span>Pandas</span>
+                            <span>Matplotlib</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/dinesh31-bit/Simple-Linear-Regression-house-price-prediction" class="project-link"><i class="fab fa-github"></i> Code</a>
+                           
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Honey Bee Disease Prediction using CNN</h3>
+                        <p>This project builds and trains a CNN to classify images as "Infected DWV honey bees" or "Healthy honey bees" then evaluates and uses it for predictions.</p>
+                        <div class="project-tech">
+                            <span>CNN</span>
+                            <span>Python</span>
+                            <span>Cv2</span>
+                            <span>Pandas</span>
+                            <span>numpy</span>
+                            <span>tensorflow</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/dinesh31-bit/cnn-honeybee" class="project-link"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <i class="fas fa-image"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Honey Bee disease predictionusing flask </h3>
+                        <p>After training a CNN model, we saved it as an .h5 file. We then developed a web application where beekeepers can upload images of their honeybees. The application processes the image to determine if the bee is infected with the DWV virus. If an infection is detected, it provides a list of precautions to help keep the beehive healthy.</p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>Flask</span>
+                            <span>tensorflow</span>
+                            <span>Keras</span>
+                            <span>os</span>
+                            <span>numpy</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/dinesh31-bit/honeybee-diseasePrediction" class="project-link"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+<section id="certifications" class="certifications">
+    <div class="container">
+        <h2 class="section-title">Certifications & Achievements</h2>
+        <div class="certifications-grid">
+            <a href="https://drive.google.com/file/d/1mVfer75aKX-0phGwOJRf5r1-dLOX5Ffm/view?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <i class="fab fa-google"></i>
+                    </div>
+                    <h3>Isro AIML</h3>
+                    <p>Professional Certificate in AIML</p>
+                    <div class="cert-date">2024</div>
+                </div>
+            </a>
+           
+            <a href="https://drive.google.com/file/d/1rEe4xTiBMFqo2CkGqpDTkIWFXFkgfH67/view?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>IEEE-Paper PUBLITOIN</h3>
+                    <p>Certificate of presentation in conferance <br>  </p>
+                    <div class="cert-date">2025</div>
+                </div>
+            </a>
+
+            <a href="https://drive.google.com/file/d/1h9R482L-7E4v0soL4gVAI3aZqpEC_WGE/view?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>SQL Certificate</h3>
+                    <p>BY IBM developper skills network</p>
+                    <div class="cert-date">2024</div>
+                </div>
+            </a>
+
+            <a href="https://drive.google.com/file/d/1jUaYVkWQ0bTSLRMHlSqiD05YOpXlRUXf/view?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Power BI</h3>
+                    <p>PowerBi course by <br>TNX<br>  </p>
+                    <div class="cert-date">2023</div>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+    <!-- Fun Section -->
+    <section id="fun" class="fun-section">
+        <div class="container">
+            <h2 class="section-title">My Learning Journey</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Started Programming</h3>
+                        <p>My journey began with C, and then I was introduced to Python, where I found it truly interesting.</p>
+                        <span class="timeline-date">2021</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Discovered AI/ML</h3>
+                        <p>My first machine learning project involved exploring algorithms and building a house price prediction model using linear regression.</p>
+                        <span class="timeline-date">2022</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Deep Learning Focus</h3>
+                        <p>My work involved developing a CNN algorithm to determine whether honey bees are infected or healthy.</p>
+                        <span class="timeline-date">2023</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>The paper was published in a reputed journal, IEEE</h3>
+                        <p>I applied my AI/ML knowledge to develop a web application for identifying missing persons</p>
+                        <span class="timeline-date">2025</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume" class="resume">
+        <div class="container">
+            <h2 class="section-title">Resume</h2>
+            <div class="resume-content">
+                <div class="resume-preview">
+                    <div class="resume-placeholder">
+                        <i class="fas fa-file-pdf"></i>
+                        <h3>Download My Resume</h3>
+                        <p>Get a detailed overview of my skills, experience, and projects</p>
+                    </div>
+                </div>
+                <div class="resume-download">
+                    <a href="PVResume.pdf" class="btn btn-primary" download>
+                        <i class="fas fa-download"></i>
+                        Download Resume
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <!-- Contact Section -->
+<section id="contact" class="contact">
+    <div class="container">
+        <h2 class="section-title">Let's Work Together</h2>
+        <div class="contact-content">
+            <div class="contact-info">
+                <h3>Get in Touch</h3>
+                <p>I'm always open to discussing new opportunities, interesting projects, or just having a chat about AI/ML!</p>
+                <div class="contact-links">
+                    <a href="mailto:palavenkatadineshreddy@gmail.com" class="contact-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>palavenkatadineshreddy@gmail.com</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/dineshreddypala/" class="contact-link">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://github.com/dinesh31-bit" class="contact-link">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://wa.me/7680041326" class="contact-link">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>WhatsApp</span>
+                    </a>
+                    <a href="https://www.instagram.com/mr_pvdr/" class="contact-link">
+                        <i class="fab fa-instagram"></i>
+                        <span>Instagram</span>
+                    </a>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="22cbff00-5b76-4e2a-bf39-881673f8c600">
+                    <input type="hidden" name="subject" value="New Contact Form Submission from Portfolio">
+                    <input type="hidden" name="from_name" value="Portfolio Contact Form">
+                    <input type="checkbox" name="botcheck" style="display: none;">
+                    
+                    <div id="formAlerts"></div>
+                    
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="submitBtn">
+                        <span id="submitText">Send Message</span>
+                        <span id="loadingText" style="display: none;">Sending...</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+       <!--comments about me -->
+    <section id="testimonials">
+  <h2 class="section-title">What People Say</h2>
+  <div class="testimonial-container">
+    
+    <div class="testimonial-card">
+      <div class="testimonial-header">
+        <img src="1.jpg" alt="Venkata Nikhil" class="profile-pic">
+        <div class="testimonial-info">
+          <h4>A.Jeetendra</h4>
+          <!-- <span class="company">Software Developper</span> -->
+        </div>
+      </div>
+      <p>
+        Dinesh is a rare blend of intellect, humility, and dedication. His ability to approach complex problems with clarity and determination is truly admirable.
+        <span class="more-text"> Whether it's collaborating on technical challenges or supporting peers, he always brings positivity and focus to the table. His passion for learning and consistent drive for excellence make him not just a reliable teammate but an inspiring individual. Anyone who works with him is bound to benefit from his insight and sincerity.
+<br>PV Dinesh Reddy
+Problem Solver</span>
+        <span class="toggle-text">View More</span>
+      </p>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="testimonial-header">
+        <img src="2.jpg" alt="Pavani Allu" class="profile-pic">
+        <div class="testimonial-info">
+          <h4>Bharath</h4>
+        <!-- <span class="company">software engineer</span> -->
+        </div>
+      </div>
+      <p>
+        Dinesh is one of the most grounded and humble individuals I’ve met. His calm nature and soft-spoken attitude make him approachable and respected.
+        <span class="more-text">With steady discipline, a generous spirit for sharing knowledge, and thoughtful leadership, he continues to inspire others through his actions more than his words.</span>
+        <span class="toggle-text">View More</span>
+      </p>
+    </div>
+
+  </div>
+</section>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 Your Name. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
