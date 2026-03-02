@@ -1,7 +1,7 @@
 pipeline{
     agent any
     environment{
-        nginx_ip="43.205.96.96"
+        nginx_ip="13.233.124.32"
     }
     stages{
         stage{
