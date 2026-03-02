@@ -1,0 +1,38 @@
+pipeline{
+    agent any
+    environment{
+        nginx_ip="43.205.96.96"
+    }
+    stages{
+        stage{
+            steps("git clone"){
+            git branch: 'main', credentialsId:"dinesh31bitgit", url: 'https://github.com/dinesh31-bit/main-portfolio.git'
+            }
+        }
+        stage{
+            steps{
+                sshagent([nginx-token]){
+                sh'''
+                 "ssh -o StrictHostKeyChecking=no ec2-user@${nginx_ip} sudo systemctl stop nginx"
+                 "ssh -o StrictHostKeyChecking=no ec2-user@${nginx_ip} sudo rm -rf /usr/share/nginx/html/*"
+                 "scp -o StrictHostKeyChecking=no * ec2-user@${nginx_ip}:/home/ec2-user/dinesh/"
+                 "ssh -o StrictHostKeyChecking=no ec2-user@${nginx_ip} sudo mv /home/ec2-user/dinesh/* /usr/share/nginx/html/"
+                 "ssh -o StrictHostKeyChecking=no ec2-user@${nginx_ip} sudo systemctl start nginx"
+                '''
+                }
+            }
+        }
+    }
+    post{
+        always{
+            echo "it will run always"
+        }
+        success{
+            echo "it will run only if it is success"
+        }
+        failure{
+            echo "it will run only if it is sucess "
+        }
+
+}
+}
