@@ -3,7 +3,7 @@ pipeline{
     environment{
         nginx_ip="13.233.124.32"
     }
-    trigger{
+    triggers{
         githubPush()
     }
     stages{
