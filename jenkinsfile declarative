@@ -4,11 +4,11 @@ pipeline{
         nginx_ip="13.233.124.32"
     }
     stages{
-        stage{
-            steps("git clone"){
-            git branch: 'main', credentialsId:"dinesh31bitgit", url: 'https://github.com/dinesh31-bit/main-portfolio.git'
-            }
-        }
+        // stage{
+        //     steps("git clone"){
+        //     git branch: 'main', credentialsId:"dinesh31bitgit", url: 'https://github.com/dinesh31-bit/main-portfolio.git'
+        //     }
+        // }
         stage{
             steps{
                 sshagent([nginx-token]){
